@@ -2,5 +2,6 @@
     <string name="app_name">Czechitas Domácí úkol 2</string>
     <string name="lower">Nižší</string>
     <string name="higher">Vyšší</string>
+    <string name="input_not_a_number">Input nejspíš není číslo!</string>
     <string name="number_is">Výsledné číslo je %1$d.</string>
 </resources>

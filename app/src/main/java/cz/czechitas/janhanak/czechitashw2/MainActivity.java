@@ -27,16 +27,22 @@ public class MainActivity extends AppCompatActivity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Integer guess = Integer.parseInt(numberInput.getText().toString());
-                if (number > guess) {
-                    Toast.makeText(MainActivity.this, getString(R.string.higher), Toast.LENGTH_SHORT).show();
-                } else if (number < guess) {
-                    Toast.makeText(MainActivity.this, getString(R.string.lower), Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent intent = new Intent(MainActivity.this, HurrayActivity.class);
-                    intent.putExtra(Constants.NUMBER,number);
-                    startActivity(intent);
+                try {
+                    Integer guess = Integer.parseInt(numberInput.getText().toString());
+                    if (number > guess) {
+                        Toast.makeText(MainActivity.this, getString(R.string.higher), Toast.LENGTH_SHORT).show();
+                    } else if (number < guess) {
+                        Toast.makeText(MainActivity.this, getString(R.string.lower), Toast.LENGTH_SHORT).show();
+                    } else {
+                        Intent intent = new Intent(MainActivity.this, HurrayActivity.class);
+                        intent.putExtra(Constants.NUMBER,number);
+                        startActivity(intent);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(MainActivity.this, getString(R.string.input_not_a_number), Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
     }
